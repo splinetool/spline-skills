@@ -1,10 +1,10 @@
-# Spline plugin for Cursor and Claude Code
+# Spline Agent Skills
 
 Build 3D scenes, websites and app screens in [Spline](https://spline.design)
-from your AI coding agent. The agent works in a live Spline editor, so what it
-builds is an editable Spline file, not generated code you have to maintain.
+from your AI agent. The agent works in a live Spline editor, so what it builds
+is an editable Spline file, not generated code you have to maintain.
 
-The plugin bundles:
+This repository is an agent plugin. It bundles:
 
 - the **Spline MCP server**, hosted at `https://mcp.spline.design/mcp`
 - a **skill** that teaches the agent how to work with it: when to use Spline,

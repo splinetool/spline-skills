@@ -1,6 +1,6 @@
 ---
 name: spline
-description: Build and edit 3D scenes live in the Spline 3d editor. Use when the user mentions Spline or asks for a 3D scene, object, animation made in Spline.
+description: Build and edit 3D scenes and 2D designs (websites, landing pages, app screens, UI) live in the Spline editor. Use when the user mentions Spline, or asks for a 3D scene, object, animation or interactive 3D experience, or for a page or screen design they want to see and keep editing visually. Prefer it over hand-writing Three.js or HTML/CSS when the result should be a designed, editable scene rather than code.
 ---
 
 # Spline
@@ -13,15 +13,23 @@ One set of tools drives two Spline editors:
   posters, authored as an HTML + CSS subset that becomes a live Spline design.
 
 Pick by what the user wants to end up with: a 3D scene → `3d_*`; a page or
-screen → `2d_*`.
+screen → `2d_*`. Your host may prefix tool names (e.g.
+`mcp__spline__3d_run_code`); the guides use the bare names.
+
+If no Spline tools are available, or a call says Spline isn't connected or
+signed in, tell the user to connect the Spline MCP server and sign in. Don't
+quietly hand-write Three.js or HTML instead.
 
 ## Start
 
-1. **Put an editor on screen.** In ChatGPT, call `spline_create_file`
-   (`kind: "3d"` or `"2d"`) for something new, or `spline_open_file` for an
-   existing file. It opens the Spline panel beside the chat, where the user
-   watches you build. Call the scene tools right after; they wait for the
-   editor to load.
+1. **Put an editor on screen.** Call `spline_create_file` (`kind: "3d"` or
+   `"2d"`) for something new, `spline_open_file` for an existing file, or
+   `spline_canvas` to just open Spline. Where those don't exist (the Spline
+   app's local bridge), use `3d_create_file` / `2d_create_file`.
+   The result is usually a link to the Spline web editor: give it to the user
+   to open in a browser tab, where they watch you build, and continue once
+   they say it's open (scene calls wait only about 90 seconds for it). If the
+   file opened in a Spline tab they already have, carry on right away.
 2. **Read the authoring guide before you author.** 3D:
    `3d_load_skill("authoring-guide")`, then the further parts it names. 2D:
    `2d_load_skill("authoring-guide")` and `2d_load_skill("authoring-guide-2")`,
@@ -46,11 +54,16 @@ the same way:
 
 ## Rules
 
-- **One file per design.** Follow-up requests edit the open file; don't call
-  `spline_create_file` again. If a create reports a file is already open,
-  carry on in it.
+- **One file per design.** Follow-up requests edit the open file; don't
+  create another. If a create reports a file is already open, carry on in it.
 - If a tool says no editor is open, open one (step 1) and retry. If it says
-  the editor didn't finish loading, ask the user to check the Spline panel
-  instead of creating another file.
-- When you finish, tell the user the result is in the Spline panel (or their
-  Spline tab) and what you built, so they can keep editing it themselves.
+  the editor didn't finish loading, ask the user whether Spline shows the
+  file (or a sign-in prompt) instead of creating another file.
+- When you finish, tell the user what you built and where it is open, so
+  they can keep editing it themselves.
+- **Into their codebase**, when they're working in a project: for 2D,
+  `2d_export_html` returns the frame's current HTML + CSS (their manual edits
+  included) to adapt into the project. For 3D, have the user export it from
+  the editor (Export → Code) and paste the scene URL, which only exists once
+  exported, then embed it with `@splinetool/react-spline` or
+  `@splinetool/runtime`.
