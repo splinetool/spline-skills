@@ -26,10 +26,15 @@ quietly hand-write Three.js or HTML instead.
    `"2d"`) for something new, `spline_open_file` for an existing file, or
    `spline_canvas` to just open Spline. Where those don't exist (the Spline
    app's local bridge), use `3d_create_file` / `2d_create_file`.
-   The result is usually a link to the Spline web editor: give it to the user
-   to open in a browser tab, where they watch you build, and continue once
-   they say it's open (scene calls wait only about 90 seconds for it). If the
-   file opened in a Spline tab they already have, carry on right away.
+   The result usually gives the file's id and a link to it in the Spline web
+   editor. **Pass that id as `file` on every `3d_*` / `2d_*` call** for the
+   file: it is how your calls reach your file and not another chat's. **Show
+   the user the link right away** (the result gives a ready-made one), so they
+   can open it in a browser tab and watch you build. Loading guides can go
+   ahead meanwhile, and scene calls on the file wait about 30 seconds for the
+   tab. If a call says the file is not open, end your turn and continue once
+   they say it's open, however long that takes. If the result says the file
+   is already open, carry on right away.
 2. **Read the authoring guide before you author.** 3D:
    `3d_load_skill("authoring-guide")`, then the further parts it names. 2D:
    `2d_load_skill("authoring-guide")` and `2d_load_skill("authoring-guide-2")`,
@@ -54,13 +59,16 @@ the same way:
 
 ## Rules
 
-- **One file per design.** Follow-up requests edit the open file; don't
-  create another. If a create reports a file is already open, carry on in it.
-- If a tool says no editor is open, open one (step 1) and retry. If it says
-  the editor didn't finish loading, ask the user whether Spline shows the
-  file (or a sign-in prompt) instead of creating another file.
-- When you finish, tell the user what you built and where it is open, so
-  they can keep editing it themselves.
+- **One file per design.** Follow-up requests edit the same file, with the
+  same `file` id; don't create another. If a create reports a file is
+  already open, carry on in it.
+- If a tool says the file is not open, give the user its link again and end
+  your turn; retry with the same `file` once they say it's open. If it says
+  no editor is open, open one (step 1) and retry. If it says the editor
+  didn't finish loading, ask the user whether Spline shows the file (or a
+  sign-in prompt). Never create another file to get past these.
+- When you finish, tell the user what you built and give them the file's
+  link, so they can keep editing it themselves.
 - **Into their codebase**, when they're working in a project: for 2D,
   `2d_export_html` returns the frame's current HTML + CSS (their manual edits
   included) to adapt into the project. For 3D, have the user export it from
