@@ -1,8 +1,9 @@
 # Spline Agent Skills
 
-Build 3D scenes, websites and app screens in [Spline](https://spline.design)
-from your AI agent. The agent works in a live Spline editor, so what it builds
-is an editable Spline file, not generated code you have to maintain.
+Build interactive 3D scenes in [Spline](https://spline.design) from your AI
+agent. The agent works in a live Spline editor, so what it builds is an
+editable Spline file, not generated code you have to maintain. 2D design
+(websites and app screens) is coming soon.
 
 This repository is an agent plugin. It bundles:
 
@@ -30,9 +31,10 @@ The first time the agent uses a Spline tool, your editor asks you to sign in
 to Spline in the browser and approve access. The agent then works in your
 Spline account.
 
-When the agent creates or opens a file, it gives you a link to the Spline
-editor. Open it in your browser: that tab connects to your agent, and you can
-watch the design come together and edit it yourself.
+The agent's work runs in Spline's cloud editor, so nothing has to be open.
+When it creates or opens a file, it gives you a link to the Spline editor:
+open it in your browser to watch the scene come together and edit it
+yourself.
 
 ## Learn more
 

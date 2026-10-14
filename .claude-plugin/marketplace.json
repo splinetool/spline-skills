@@ -1,6 +1,6 @@
 {
   "name": "spline",
-  "description": "The official Spline plugin: build 3D scenes, websites and app screens in Spline from Claude Code.",
+  "description": "The official Spline plugin: build interactive 3D scenes in Spline from Claude Code.",
   "owner": {
     "name": "Spline",
     "url": "https://spline.design"
@@ -9,7 +9,7 @@
     {
       "name": "spline",
       "source": ".",
-      "description": "Build 3D scenes, websites and app screens in Spline, live in the Spline editor."
+      "description": "Build interactive 3D scenes in Spline, live in the Spline editor."
     }
   ]
 }
