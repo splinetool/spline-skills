@@ -8,7 +8,6 @@
     "url": "https://spline.design"
   },
   "homepage": "https://docs.spline.design/generate/spline-mcp-server",
-  "license": "MIT",
   "keywords": ["3d", "design", "website", "ui", "animation"],
   "logo": "assets/logo.png"
 }
