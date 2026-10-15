@@ -6,5 +6,6 @@
     "name": "Spline",
     "url": "https://spline.design"
   },
-  "homepage": "https://docs.spline.design/generate/spline-mcp-server"
+  "homepage": "https://docs.spline.design/generate/spline-mcp-server",
+  "privacyPolicyUrl": "https://spline.design/privacy"
 }
