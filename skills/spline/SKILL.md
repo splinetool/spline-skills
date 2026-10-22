@@ -62,6 +62,13 @@ the same way:
 - If a tool says no editor is open, open one (step 1) and retry. If it says
   the editor didn't finish loading or could not start, retry in a moment.
   Never create another file to get past these.
+- **To undo**, when the user asks to undo, roll back or go back to how
+  it was: `3d_list_versions` / `2d_list_versions`, then
+  `3d_restore_version` / `2d_restore_version` with the version to go back
+  to. Spline's cloud editor saves a "Before AI edits" version before your
+  first edit of each request, so the newest one undoes your last request. Say which version
+  you restored, then re-read the scene before editing again. Don't try to
+  undo by rebuilding what was there by hand.
 - When you finish, tell the user what you built and give them the file's
   link, so they can keep editing it themselves.
 - **Into their codebase**, when they're working in a project: for 2D,
