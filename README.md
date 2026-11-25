@@ -39,6 +39,8 @@ yourself.
 
 - [Spline MCP server](https://docs.spline.design/generate/spline-mcp-server)
 - [Spline Agent Skill](https://docs.spline.design/generate/spline-agent-skill)
+- The server is listed on the [MCP Registry](https://registry.modelcontextprotocol.io/v0.1/servers?search=design.spline/mcp)
+  as `design.spline/mcp`, from this repository's `server.json`
 
 ## About this repository
 
