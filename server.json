@@ -3,7 +3,7 @@
   "name": "design.spline/mcp",
   "title": "Spline",
   "description": "Build and edit Spline 3D scenes from any AI tool: create files, generate 3D models and images.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "websiteUrl": "https://docs.spline.design/generate/spline-mcp-server",
   "repository": {
     "url": "https://github.com/splinetool/spline-skills",
